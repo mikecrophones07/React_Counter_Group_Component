@@ -11,6 +11,10 @@ class CounterGroup extends React.Component {
     }
   }
 
+  counterUpdateCallBack = changeNum =>{
+    this.setState({sum: this.state.sum + changeNum})
+  }
+
   handleInputChange = (event) => {
     const re = /^[0-9\b]+$/;
     if (event.target.value === '' || re.test(event.target.value)) {
@@ -24,7 +28,10 @@ class CounterGroup extends React.Component {
 
   renderCounters = () => {
     return Array.apply(null, {length: this.state.counterGroup}).map(element => {
-        return (<Counter/>);
+        return (<Counter 
+            key={element}
+            onCounterValueChange={this.counterUpdateCallBack}
+        />);
     })
   }
   
@@ -34,7 +41,7 @@ class CounterGroup extends React.Component {
       <div>
           <input type = "text" value={this.state.inputValue} onChange={this.handleInputChange}/>
           <button onClick={this.regenerateCounters}>Regenerate Counter</button>
-          <span>Sum: 3</span>
+          <span>Sum: {this.state.sum}</span>
           <div>
             {element}
           </div>
