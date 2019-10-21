@@ -20,3 +20,12 @@
 .App-link {
   color: #09d3ac;
 }
+
+.Container {
+  text-align: center;
+}
+
+.Container-Child {
+  display: inline-block; 
+  vertical-align: top;
+}
