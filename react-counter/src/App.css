@@ -21,11 +21,45 @@
   color: #09d3ac;
 }
 
-.Container {
-  text-align: center;
+.counter-group{
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:  flex-start;
+  min-height: 100vh;
+  margin-top: 20px;
+  background-color: #282c34;
+  padding-top: 20px;
+
 }
 
-.Container-Child {
-  display: inline-block; 
-  vertical-align: top;
+.counter-group input{
+  font-size: 3rem;
 }
+
+.counter-group button{
+  font-size: 3rem;
+}
+
+.regenerate{
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+}
+
+.regenerate input{
+  margin-bottom: 20px
+}
+
+.regenerate span{
+  color: green;
+}
+
+.regenerate button{
+  border-radius: 9px;
+  font-family: "Calibri", Times, serif;
+}
+
+
+

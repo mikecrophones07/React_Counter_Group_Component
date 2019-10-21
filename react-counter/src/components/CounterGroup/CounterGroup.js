@@ -1,5 +1,7 @@
 import React from 'react';
 import Counter from '../Counter/Counter'
+import '../../App.css';
+import '../../Counter.css';
 
 class CounterGroup extends React.Component {
   constructor(props){
@@ -36,14 +38,16 @@ class CounterGroup extends React.Component {
   }
   
   render(){
-    let element = this.renderCounters()
+    let counters = this.renderCounters()
     return (
-      <div>
-          <input type = "text" value={this.state.inputValue} onChange={this.handleInputChange}/>
-          <button onClick={this.regenerateCounters}>Regenerate Counter</button>
-          <span>Sum: {this.state.sum}</span>
-          <div>
-            {element}
+      <div className="counter-group">
+          <div className="regenerate">
+            <input type = "text" value={this.state.inputValue} onChange={this.handleInputChange}/>
+            <button onClick={this.regenerateCounters}>Regenerate Counter</button>
+            <div className ="counters">
+                <span>Sum: {this.state.sum}</span>
+                {counters}
+            </div>
           </div>
       </div>
     );
