@@ -6,7 +6,8 @@ class CounterGroup extends React.Component {
     super(props);
     this.state ={
         counterGroup: this.props.defaultCounter,
-        inputValue:''
+        inputValue:'',
+        sum:0
     }
   }
 
@@ -20,17 +21,23 @@ class CounterGroup extends React.Component {
   regenerateCounters = () => {
       this.setState({counterGroup: this.state.inputValue})
   }
-  
-  render(){
-    let element = Array.apply(null, {length: this.state.counterGroup}).map(element => {
+
+  renderCounters = () => {
+    return Array.apply(null, {length: this.state.counterGroup}).map(element => {
         return (<Counter/>);
     })
+  }
+  
+  render(){
+    let element = this.renderCounters()
     return (
       <div>
           <input type = "text" value={this.state.inputValue} onChange={this.handleInputChange}/>
           <button onClick={this.regenerateCounters}>Regenerate Counter</button>
           <span>Sum: 3</span>
-          {element}
+          <div>
+            {element}
+          </div>
       </div>
     );
   }
